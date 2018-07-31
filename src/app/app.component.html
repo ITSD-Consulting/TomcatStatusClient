@@ -4,19 +4,19 @@
   <div class="content">
     <table>
       <tr>
-        <th class="fixed225Column">Umgebung</th>
-        <th class="fixed225Column">Version</th>
+        <th class="fixed250Column">Umgebung</th>
+        <th class="fixed250Column">Version</th>
         <th>Modified</th>
-        <th class="fixed225Column">URL</th>
+        <th class="fixed250Column">URL</th>
         <th>Logs</th>
         <th>Status</th>
         <th>Misc</th>
       </tr>
       <tr *ngFor="let tomcat of server.tomcatList">
-        <td class="fixed225Column">{{tomcat.deploymentPath}}</td>
-        <td class="fixed225Column">{{tomcat.version}}</td>
+        <td class="fixed250Column">{{tomcat.deploymentPath}}</td>
+        <td class="fixed250Column">{{tomcat.version}}</td>
         <td>{{tomcat.modified}}</td>
-        <td class="fixed225Column">
+        <td class="fixed250Column">
           <ul>
             <li *ngFor="let url of tomcat.URL">
               <a target="_blank" href="{{url}}">{{url}}</a>
