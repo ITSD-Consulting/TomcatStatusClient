@@ -1,9 +1,9 @@
 <div class="server" *ngFor="let server of serverList">
   <h1>Serverstatus zu {{server.serverIp}}</h1>
 
-  <div class="content">
-    <table>
-      <tr>
+  <div class="content" fxLayoutAlign="column">
+    <div class="content-row" fxLayoutAlign="row">
+        <th >  </th>
         <th class="fixed250Column">Umgebung</th>
         <th class="fixed250Column">Version</th>
         <th>Modified</th>
@@ -11,31 +11,9 @@
         <th>Logs</th>
         <th>Status</th>
         <th>Misc</th>
-      </tr>
-      <tr *ngFor="let tomcat of server.tomcatList">
-        <td class="fixed250Column">{{tomcat.deploymentPath}}</td>
-        <td class="fixed250Column">{{tomcat.version}}</td>
-        <td>{{tomcat.modified}}</td>
-        <td class="fixed250Column">
-          <ul>
-            <li *ngFor="let url of tomcat.URL">
-              <a target="_blank" href="{{url}}">{{url}}</a>
-            </li>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <li *ngFor="let url of tomcat.URL">
-              <a target="_blank" href="{{url}}/logs">logs</a>
-            </li>
-          </ul>
-        </td>
-        <td><div [ngClass]="tomcat.isRunning ? 'online' : 'offline'"></div></td>
-        <td>
-          <button *ngIf="!tomcat.isRunning" (click)="startServer( tomcat )" class="button">start</button>
-          <button *ngIf="tomcat.isRunning" (click)="stopServer( tomcat )" class="button">stop</button>
-        </td>
-      </tr>
+      <div *ngFor="let tomcat of server.tomcatList">
+        <app-server-row [tomcat]="tomcat"></app-server-row>
+      </div>
     </table>
   </div>
 </div>

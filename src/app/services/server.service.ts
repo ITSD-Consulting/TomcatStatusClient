@@ -10,6 +10,7 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class ServerService {
 
+  // URL der Statuspage selbst
   api_url = 'http://192.168.10.63:1010';
   //api_url = 'http://localhost:3000';
   serverURL = `${this.api_url}/api/servers`;

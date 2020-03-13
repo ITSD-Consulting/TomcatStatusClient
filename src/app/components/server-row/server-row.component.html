@@ -1,0 +1,30 @@
+<tr class="content-row">
+<td>
+  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" (click)="toggle()">Info</button>
+</td>
+<td class="fixed250Column">{{tomcat.deploymentPath}}</td>
+<td class="fixed250Column">{{tomcat.version}}</td>
+<td>{{tomcat.modified}}</td>
+<td class="fixed250Column">
+  <ul>
+    <li *ngFor="let url of tomcat.URL">
+      <a target="_blank" href="{{url}}">{{url}}</a>
+    </li>
+  </ul>
+</td>
+<td>
+  <ul>
+    <li *ngFor="let url of tomcat.URL">
+      <a target="_blank" href="{{url}}/logs">logs</a>
+    </li>
+  </ul>
+</td>
+<td><div [ngClass]="tomcat.isRunning ? 'online' : 'offline'"></div></td>
+<td> 
+  <button *ngIf="!tomcat.isRunning" (click)="startServer( tomcat )" class="button">start</button>
+  <button *ngIf="tomcat.isRunning" (click)="stopServer( tomcat )" class="button">stop</button>
+</td>
+</tr>
+<tr class="toggle-row" *ngIf="showToggleRow">
+  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+</tr>
