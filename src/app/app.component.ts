@@ -1,9 +1,7 @@
 import Server from './models/server.model';
 import { ServerService } from './services/server.service';
-import { Response } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
-import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
-import 'rxjs/add/operator/startWith';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -23,7 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     //At component initialization the 
 
-    IntervalObservable.create(10000).startWith(0).subscribe((val) => this.getServers() );
+    Observable.create(10000).startWith(0).subscribe((val) => this.getServers() );
   }
 
   private getServers(): void {

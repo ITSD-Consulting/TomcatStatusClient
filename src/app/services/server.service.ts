@@ -1,11 +1,8 @@
 import Server from '../models/server.model';
-import { Observable } from 'rxjs/Rx';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ServerService {
@@ -21,8 +18,7 @@ export class ServerService {
 
   //Read todo, takes no arguments
   getServers(): Observable<Server[]>{
-    return this.http.get(this.serverURL)
-    .map(res  => <Server[]> res["data"]);
+    return this.http.get<Server[]>(this.serverURL);
   }
 
   startServer(pTomcat) {
