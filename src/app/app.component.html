@@ -1,19 +1,20 @@
-<div class="server" *ngFor="let server of serverList">
-  <h1>Serverstatus zu {{server.serverIp}}</h1>
+<div class="container" fxLayout="column" fxFlex="1920px" fxLayoutAlign="center center">
+  <div class="server" *ngFor="let server of serverList" fxLayout="column">
+    <h1>Serverstatus zu {{server.serverIp}}</h1>
 
-  <div class="content" fxLayoutAlign="column">
-    <div class="content-row" fxLayoutAlign="row">
-        <th >  </th>
-        <th class="fixed250Column">Umgebung</th>
-        <th class="fixed250Column">Version</th>
-        <th>Modified</th>
-        <th class="fixed250Column">URL</th>
-        <th>Logs</th>
-        <th>Status</th>
-        <th>Misc</th>
-      <div *ngFor="let tomcat of server.tomcatList">
-        <app-server-row [tomcat]="tomcat"></app-server-row>
+    <div class="content" fxLayout="column" fxFlex="100">
+      <div class="content-row" fxLayoutAlign="row">
+        <span class="table-header" fxFlex="5"> </span>
+        <span class="table-header" fxFlex="20">Umgebung</span>
+        <span class="table-header" fxFlex="25">Version</span>
+        <span class="table-header" fxFlex="10">Modified</span>
+        <span class="table-header" fxFlex="17">URL</span>
+        <span class="table-header" fxFlex="5">Logs</span>
+        <span class="table-header" fxFlex="8">Status</span>
+        <span class="table-header" fxFlex="8">Misc</span>
       </div>
-    </table>
+      <div *ngFor="let tomcat of server.tomcatList" class="tomcat-row">
+        <app-server-row fxFlex="100" [tomcat]="tomcat"></app-server-row>
+      </div>
+    </div>
   </div>
-</div>

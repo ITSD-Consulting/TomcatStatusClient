@@ -1,7 +1,9 @@
 import Server from './models/server.model';
 import { ServerService } from './services/server.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import {map} from 'rxjs/operators';
+
 
 
 @Component({
@@ -19,13 +21,11 @@ export class AppComponent implements OnInit {
   serverList: Server[];
 
   ngOnInit(): void {
-    //At component initialization the 
-
-    Observable.create(10000).startWith(0).subscribe((val) => this.getServers() );
+    timer(0, 10000).subscribe(() => this.getServers() );
   }
 
   private getServers(): void {
-    this.serverService.getServers()
+    this.serverService.getServers().pipe(map(res => res.data))
       .subscribe(servers => {
         this.serverList = servers;
     })

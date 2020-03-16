@@ -1,30 +1,32 @@
-<tr class="content-row">
-<td>
-  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" (click)="toggle()">Info</button>
-</td>
-<td class="fixed250Column">{{tomcat.deploymentPath}}</td>
-<td class="fixed250Column">{{tomcat.version}}</td>
-<td>{{tomcat.modified}}</td>
-<td class="fixed250Column">
-  <ul>
-    <li *ngFor="let url of tomcat.URL">
-      <a target="_blank" href="{{url}}">{{url}}</a>
-    </li>
-  </ul>
-</td>
-<td>
-  <ul>
-    <li *ngFor="let url of tomcat.URL">
-      <a target="_blank" href="{{url}}/logs">logs</a>
-    </li>
-  </ul>
-</td>
-<td><div [ngClass]="tomcat.isRunning ? 'online' : 'offline'"></div></td>
-<td> 
-  <button *ngIf="!tomcat.isRunning" (click)="startServer( tomcat )" class="button">start</button>
-  <button *ngIf="tomcat.isRunning" (click)="stopServer( tomcat )" class="button">stop</button>
-</td>
-</tr>
-<tr class="toggle-row" *ngIf="showToggleRow">
-  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-</tr>
+<div class="server-row-container" fxLayout="column">
+  <div class="content-row" fxLayout="row" fxFlex="100">
+    <div fxFlex="5" fxLayoutAlign="start center">
+      <button class="info-btn" type="button"
+        (click)="toggle()">Info</button>
+    </div>
+    <div fxFlex="20" fxLayoutAlign="start center">{{tomcat.deploymentPath}}</div>
+    <div fxFlex="25" fxLayoutAlign="start center">{{tomcat.version}}</div>
+    <div fxFlex="10" fxLayoutAlign="start center">{{tomcat.modified}}</div>
+    <div fxFlex="17" fxLayoutAlign="center start" fxLayout="column" fxLayoutGap="5px">
+      <span *ngFor="let url of tomcat.URL">
+        <a target="_blank" [href]="url">{{url}}</a>
+      </span>
+    </div>
+    <div fxFlex="5" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <span *ngFor="let url of tomcat.URL">
+        <a target="_blank" href="{{url}}/logs">logs</a>
+      </span>
+    </div>
+    <div fxFlex="8" fxLayoutAlign="center center">
+      <div [ngClass]="tomcat.isRunning ? 'online' : 'offline'"></div>
+    </div>
+    <div fxFlex="8" fxLayoutAlign="center center" fxLayout="row">
+      <button *ngIf="!tomcat.isRunning" (click)="startServer( tomcat )" class="button">start</button>
+      <button *ngIf="tomcat.isRunning" (click)="stopServer( tomcat )" class="button">stop</button>
+    </div>
+  </div>
+  <div class="toggle-row" *ngIf="showToggleRow" fxLayout="row">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh
+    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
