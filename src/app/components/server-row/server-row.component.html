@@ -21,8 +21,8 @@
       <div [ngClass]="tomcat.isRunning ? 'online' : 'offline'"></div>
     </div>
     <div fxFlex="8" fxLayoutAlign="center center" fxLayout="row">
-      <button *ngIf="!tomcat.isRunning" (click)="startServer( tomcat )" class="button">start</button>
-      <button *ngIf="tomcat.isRunning" (click)="stopServer( tomcat )" class="button">stop</button>
+      <button *ngIf="!tomcat.isRunning" (click)="startServer(tomcat)" class="button">start</button>
+      <button *ngIf="tomcat.isRunning" (click)="stopServer(tomcat)" class="button">stop</button>
     </div>
   </div>
   <div class="toggle-row" *ngIf="showToggleRow" fxLayout="row">

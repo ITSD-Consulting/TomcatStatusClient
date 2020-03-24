@@ -31,11 +31,5 @@ export class AppComponent implements OnInit {
     })
   }
 
-  public startServer(tomcat): void {
-    this.serverService.startServer(tomcat);
-  }
-
-  public stopServer(tomcat): void {
-    this.serverService.stopServer(tomcat);
-  }
+ 
 }

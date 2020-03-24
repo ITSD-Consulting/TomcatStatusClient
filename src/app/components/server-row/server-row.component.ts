@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tomcat} from '../../models/server.model';
+import { ServerService } from '../../services/server.service';
 
 @Component({
   selector: 'app-server-row',
@@ -12,7 +13,7 @@ export class ServerRowComponent implements OnInit {
 
   private showToggleRow: boolean;
 
-  constructor() {
+  constructor(private serverService: ServerService) {
     this.showToggleRow = false;
   }
 
@@ -21,6 +22,14 @@ export class ServerRowComponent implements OnInit {
 
   public toggle() {
     this.showToggleRow = !this.showToggleRow;
+  }
+
+  public startServer(tomcat): void {
+    this.serverService.startServer(tomcat);
+  }
+
+  public stopServer(tomcat): void {
+    this.serverService.stopServer(tomcat);
   }
 
 }
