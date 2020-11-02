@@ -11,7 +11,7 @@ export class ServerRowComponent implements OnInit {
 
   @Input() tomcat: Tomcat;
 
-  private showToggleRow: boolean;
+  public showToggleRow: boolean;
 
   constructor(private serverService: ServerService) {
     this.showToggleRow = false;

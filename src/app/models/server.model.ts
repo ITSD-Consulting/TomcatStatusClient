@@ -11,4 +11,5 @@ export interface Tomcat {
 	isRunning: boolean;
 	version: string;
 	modified: string;
+	URL: string;
 }
