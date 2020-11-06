@@ -27,7 +27,9 @@ export class AppComponent implements OnInit {
   private getServers(): void {
     this.serverService.getServers().pipe(map(res => res.data))
       .subscribe(servers => {
-        this.serverList = servers;
+        if(JSON.stringify(servers) !== JSON.stringify(this.serverList)) {
+          this.serverList = servers;
+        }
     })
   }
 

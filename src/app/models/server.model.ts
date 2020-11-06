@@ -12,4 +12,5 @@ export interface Tomcat {
 	version: string;
 	modified: string;
 	URL: string;
+	databaseParams: string; 
 }

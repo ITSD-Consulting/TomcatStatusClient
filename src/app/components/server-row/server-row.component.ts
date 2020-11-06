@@ -17,8 +17,7 @@ export class ServerRowComponent implements OnInit {
     this.showToggleRow = false;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public toggle() {
     this.showToggleRow = !this.showToggleRow;
@@ -30,6 +29,14 @@ export class ServerRowComponent implements OnInit {
 
   public stopServer(tomcat): void {
     this.serverService.stopServer(tomcat);
+  }
+
+  public get dbParamsList(): string[] {
+    if(!this.tomcat.databaseParams) {
+      return [];
+    }
+
+    return this.tomcat.databaseParams.split('\n');
   }
 
 }

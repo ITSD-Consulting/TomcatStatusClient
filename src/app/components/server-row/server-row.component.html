@@ -1,7 +1,7 @@
 <div class="server-row-container" fxLayout="column">
   <div class="content-row" fxLayout="row" fxFlex="100">
     <div fxFlex="5" fxLayoutAlign="start center">
-      <button class="info-btn" type="button"
+      <button class="info-btn" type="button" *ngIf="tomcat.databaseParams"
         (click)="toggle()">Info</button>
     </div>
     <div fxFlex="20" fxLayoutAlign="start center">{{tomcat.deploymentPath}}</div>
@@ -26,7 +26,9 @@
     </div>
   </div>
   <div class="toggle-row" *ngIf="showToggleRow" fxLayout="row">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    <div class="db-params-wrapper">
+      <p class="db-params-header">Datenbankparameter:</p>
+      <p *ngFor="let param of dbParamsList"> {{param}} </p>
+    </div>
   </div>
 </div>
