@@ -31,12 +31,36 @@ export class ServerRowComponent implements OnInit {
     this.serverService.stopServer(tomcat);
   }
 
+  public startMetabaseServer(pTomcat) {
+    this.serverService.startMetabaseServer(pTomcat);
+  }
+
+  public stopMetabaseServer(pTomcat) {
+    this.serverService.stopMetabaseServer(pTomcat);
+  }
+
   public get dbParamsList(): string[] {
     if(!this.tomcat.databaseParams) {
       return [];
     }
 
     return this.tomcat.databaseParams.split('\n');
+  }
+
+  public get metabaseParamsList(): string[] {
+    if(!this.tomcat.metabaseStatus) {
+      return [];
+    }
+
+    return this.tomcat.metabaseStatus.split('\n');
+  }
+
+  public get isMetabaseRunning(): boolean {
+    if(!this.tomcat.metabaseStatus) {
+      return null;
+    }
+
+    return this.tomcat.metabaseStatus.indexOf('metabase.jetty.status=running') > 0;
   }
 
 }

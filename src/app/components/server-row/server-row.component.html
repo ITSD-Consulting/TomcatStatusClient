@@ -25,10 +25,27 @@
       <button *ngIf="tomcat.isRunning" (click)="stopServer(tomcat)" class="button">stop</button>
     </div>
   </div>
-  <div class="toggle-row" *ngIf="showToggleRow" fxLayout="row">
+  <div class="toggle-row" *ngIf="showToggleRow" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
     <div class="db-params-wrapper">
       <p class="db-params-header">Datenbankparameter:</p>
       <p *ngFor="let param of dbParamsList"> {{param}} </p>
     </div>
+
+    <div class="metabase-status-wrapper" *ngIf="metabaseParamsList.length > 0" fxLayout="row">
+      <div class="metabase-params-list">
+        <p class="metabase-status-header">Metabase Status-Informationen:</p>
+        <p *ngFor="let param of metabaseParamsList"> {{param}} </p>
+      </div>
+
+      <div fxLayoutAlign="center center" class="metabase-running-icon">
+        <div [ngClass]="isMetabaseRunning ? 'online' : 'offline'"></div>
+      </div>
+
+      <div fxLayoutAlign="center center">
+        <button *ngIf="!isMetabaseRunning" (click)="startMetabaseServer(tomcat)" class="button">start</button>
+        <button *ngIf="isMetabaseRunning" (click)="stopMetabaseServer(tomcat)" class="button">stop</button>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -7,18 +7,27 @@
 }
 
 .toggle-row {
-    margin-left: 80px;
+    margin-left: 70px;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-right: 25px;
     line-height: 1.2;
 }
 
-.db-params-wrapper {
+.db-params-wrapper, .metabase-status-wrapper {
     padding: 10px;
     background: #426bad;
 }
 
-.db-params-header {
+.db-params-header, .metabase-status-header {
     margin-bottom: 10px;
     font-weight: bold;
+}
+
+.metabase-params-list {
+    margin-right: 170px;
+}
+
+.metabase-running-icon {
+    margin-right: 51px;
 }

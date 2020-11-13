@@ -23,13 +23,23 @@ export class ServerService {
   }
 
   startServer(pTomcat) {
-    let startUrl = `${this.serverURL}/start`;
+    const startUrl = `${this.serverURL}/start`;
     return this.http.post(startUrl, pTomcat).subscribe();
   }
 
   stopServer(pTomcat) {
-    let stopUrl = `${this.serverURL}/stop`;
+    const stopUrl = `${this.serverURL}/stop`;
     return this.http.post(stopUrl, pTomcat).subscribe();
+  }
+
+  startMetabaseServer(pTomcat) {
+    const startUrl = `${this.serverURL}/startMetabase`;
+    return this.http.post(startUrl, pTomcat).subscribe();
+  }
+
+  stopMetabaseServer(pTomcat) {
+    const startUrl = `${this.serverURL}/stopMetabase`;
+    return this.http.post(startUrl, pTomcat).subscribe();
   }
 
   //Default Error handling method.
