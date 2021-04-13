@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { createNoSubstitutionTemplateLiteral } from 'typescript';
 import { Tomcat} from '../../models/server.model';
 import { ServerService } from '../../services/server.service';
 
@@ -24,11 +25,19 @@ export class ServerRowComponent implements OnInit {
   }
 
   public startServer(tomcat): void {
-    this.serverService.startServer(tomcat);
+    if(tomcat.type === 'libre') {
+      this.serverService.startLibreServer(tomcat);
+    } else {
+      //this.serverService.startServer(tomcat);
+    }
   }
 
   public stopServer(tomcat): void {
-    this.serverService.stopServer(tomcat);
+    if(tomcat.type === 'libre') {
+      this.serverService.stopLibreServer(tomcat);
+    } else {
+      //this.serverService.stopServer(tomcat);
+    }
   }
 
   public startMetabaseServer(pTomcat) {

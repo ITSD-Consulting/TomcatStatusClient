@@ -14,4 +14,5 @@ export interface Tomcat {
 	URL: string;
 	databaseParams: string; 
 	metabaseStatus: string;
+	type?: string;
 }

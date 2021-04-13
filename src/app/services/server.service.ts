@@ -10,7 +10,7 @@ export class ServerService {
 
   // URL der Statuspage selbst
   api_url = 'http://192.168.10.63:1010';
-  //api_url = 'http://localhost:3000';
+  //api_url = 'http://localhost:1010';
   serverURL = `${this.api_url}/api/servers`;
 
   constructor(
@@ -39,6 +39,16 @@ export class ServerService {
 
   stopMetabaseServer(pTomcat) {
     const startUrl = `${this.serverURL}/stopMetabase`;
+    return this.http.post(startUrl, pTomcat).subscribe();
+  }
+
+  startLibreServer(pTomcat) {
+    const startUrl = `${this.serverURL}/startLibre`;
+    return this.http.post(startUrl, pTomcat).subscribe();
+  }
+
+  stopLibreServer(pTomcat) {
+    const startUrl = `${this.serverURL}/stopLibre`;
     return this.http.post(startUrl, pTomcat).subscribe();
   }
 
